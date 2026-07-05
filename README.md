@@ -30,3 +30,12 @@ This project follows **Clean Architecture** principles:
 ## Getting Started
 1. Run `flutter pub get` to install dependencies.
 2. Run the app using `flutter run`.
+
+## Screenshots
+
+<div align="center">
+  <img src="screenshots/Screenshot 2026-07-05 102714.png" width="250" alt="Login & Dashboard">
+  <img src="screenshots/Screenshot 2026-07-05 102725.png" width="250" alt="Deal Details">
+  <img src="screenshots/Screenshot 2026-07-05 102735.png" width="250" alt="Filters & Interests">
+</div>
+
