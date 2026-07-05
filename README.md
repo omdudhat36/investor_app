@@ -10,16 +10,31 @@ A mini investor deal management app built with Flutter, focusing on clean archit
 - **Interest Management**: Save deals to "My Interests" locally.
 - **Modern UI**: Clean, fintech-inspired design with Material 3 components.
 
-## Architecture
-This project follows **Clean Architecture** principles:
-- **Core**: Theme, constants, and utilities.
-- **Data**:
-    - **Models**: Data structures (Deal, RiskLevel, etc.).
-    - **Repositories**: Data fetching logic and local storage abstraction (Simulating API with mock data).
-- **Logic (BLoC)**:
-    - `AuthBloc`: Manages authentication state and sessions.
-    - `DealBloc`: Handles deal fetching, filtering, searching, and interest toggling.
-- **Presentation**: UI components, screens, and custom widgets.
+## Architecture & Folder Structure
+This project follows **Clean Architecture** principles, ensuring a clear separation of concerns:
+
+- **Core**: Contains global configurations like `app_theme.dart`.
+- **Data**: 
+    - `models/`: Plain Dart classes for data structures (e.g., `Deal`).
+    - `repositories/`: Handles data logic, mock API calls, and `shared_preferences`.
+- **Logic (BLoC)**: 
+    - Manages application state. We have `AuthBloc` for user sessions and `DealBloc` for all investment-related operations.
+- **Presentation**: 
+    - `screens/`: Individual pages (Login, Dashboard, Details).
+    - `widgets/`: Reusable UI components like `DealCard`.
+
+```text
+lib/
+├── core/               # Theme & Constants
+├── data/
+│   ├── models/         # Data Models
+│   └── repositories/   # Data Sources & Mock APIs
+├── logic/
+│   └── blocs/          # BLoC State Management
+└── presentation/
+    ├── screens/        # UI Screens
+    └── widgets/        # Reusable Widgets
+```
 
 ## Decisions & Technical Choices
 - **BLoC (Business Logic Component)**: Chosen for its robust separation of concerns and predictable state transitions.
