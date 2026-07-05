@@ -19,6 +19,14 @@ class LoginRequested extends AuthEvent {
   List<Object> get props => [email, password];
 }
 
+class RegisterRequested extends AuthEvent {
+  final String email;
+  final String password;
+  const RegisterRequested(this.email, this.password);
+  @override
+  List<Object> get props => [email, password];
+}
+
 class LogoutRequested extends AuthEvent {}
 
 
@@ -64,6 +72,16 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         emit(Authenticated());
       } else {
         emit(const AuthFailure('Invalid credentials'));
+      }
+    });
+
+    on<RegisterRequested>((event, emit) async {
+      emit(AuthLoading());
+      final success = await authRepository.register(event.email, event.password);
+      if (success) {
+        emit(Authenticated());
+      } else {
+        emit(const AuthFailure('Registration failed'));
       }
     });
 
