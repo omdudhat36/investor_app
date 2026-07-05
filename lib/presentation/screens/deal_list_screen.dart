@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../logic/blocs/auth_bloc.dart';
 import '../../logic/blocs/deal_bloc.dart';
 import '../../data/models/deal_model.dart';
 import '../widgets/deal_card.dart';
@@ -13,6 +14,28 @@ class DealListScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Investment Deals'),
+        leading: IconButton(
+          icon: const Icon(Icons.logout),
+          onPressed: () {
+            showDialog(
+              context: context,
+              builder: (context) => AlertDialog(
+                title: const Text('Logout'),
+                content: const Text('Are you sure you want to logout?'),
+                actions: [
+                  TextButton(onPressed: () => Navigator.pop(context), child: const Text('Cancel')),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                      context.read<AuthBloc>().add(LogoutRequested());
+                    },
+                    child: const Text('Logout', style: TextStyle(color: Colors.red)),
+                  ),
+                ],
+              ),
+            );
+          },
+        ),
         actions: [
           IconButton(
             icon: const Icon(Icons.filter_list),
