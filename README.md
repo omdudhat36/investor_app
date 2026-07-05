@@ -50,6 +50,10 @@ lib/
 ## Screenshots
 
 <div align="center">
+  <p><b>Authentication Flow</b></p>
+  <img src="screenshots/img.png" width="250" alt="Login">
+  <img src="screenshots/img_1.png" width="250" alt="Register">
+  <br><br>
   <p><b>Main Dashboard & Deals</b></p>
   <img src="screenshots/img_2.png" width="250" alt="Dashboard">
   <br><br>
